@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.mainfragment.commonscreen.statistics.StatisticsWeekYearFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <ImageView
+            android:id="@+id/imgBackChristmas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/black_images_back" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#171D1B"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Stats for Week/years"
+            android:textSize="@dimen/_13sdp" />
+    </RelativeLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rlToolbar"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/relWeekDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp">
+                    <RelativeLayout
+                        android:id="@+id/relCalendarView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/circular_green_shape_bg">
+                        <TextView
+                            android:id="@+id/tvCustomDates"
+                            android:layout_width="wrap_content"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/poppins_medium"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:padding="@dimen/_9sdp"
+                            android:text="12-18 Sept"
+                            app:drawableEndCompat="@drawable/drop_down_icon" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/llCalendarViewEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relWeekDate"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/calendar_events_stats_bg"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_6sdp"
+                    android:paddingVertical="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/_6sdp">
+                        <ImageView
+                            android:id="@+id/imagePrevious"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Previous Week"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/backward_icon" />
+                        <TextView
+                            android:id="@+id/textWeekRange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_12sdp"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textColor="@color/black"
+                            android:text="12 Sept - 18 Sept"
+                            android:textSize="@dimen/_13sdp" />
+                        <ImageView
+                            android:id="@+id/imageNext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Next Week"
+                            android:padding="@dimen/_5sdp"
+                            android:src="@drawable/forward_icon" />
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewWeekDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcyOrderStatsWeek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llCalendarViewEvents"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                <LinearLayout
+                    android:id="@+id/linearBreakfast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rcyOrderStatsWeek"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relFastRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Breakfast"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmountSpend"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBreakfastCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/tvDate"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on breakfast"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmountSpend"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBreakfastWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/tvAmntWeek"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBreakfastSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:layout_toLeftOf="@id/tvAmntSaving"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcyBreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearBrunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearBreakfast"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relBrunchRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Brunch"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendBrunch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBrunchCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on brunch"
+                                android:layout_toLeftOf="@id/tvDate4"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendBrunchWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendBrunch"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBrunchWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:layout_toLeftOf="@id/tvAmntBrunchWeek"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntBrunchWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntBrunchSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendBrunchWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvBrunchSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:layout_toLeftOf="@id/tvAmntBrunchSaving"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntBrunchSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcyBrunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearDessert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearBreakfast"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relDessertRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Dessert"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendDessert"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDessertCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on Dessert"
+                                android:layout_toLeftOf="@id/tvDate4"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate44"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendDessertWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendDessert"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDessertWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:layout_toLeftOf="@id/tvAmntBrunchWeek"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntDessertWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntDessertSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendDessertWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDessertSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:layout_toLeftOf="@id/tvAmntBrunchSaving"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntDessertSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcyDessert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearDessert"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relLunchRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Lunch"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendLunch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvLunchCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on lunch"
+                                android:textColor="@color/light_black"
+                                android:layout_toLeftOf="@id/tvDate1"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendLunchWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendLunch"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvLunchWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:layout_toLeftOf="@id/tvAmntLunchWeek"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntLunchWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntLunchSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendLunchWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvLunchSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:layout_toLeftOf="@id/tvAmntLunchSaving"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntLunchSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcyLunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearSnacks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLunch"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relSnacksRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Snacks"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendSnacks"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvSnacksCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on snacks"
+                                android:layout_toLeftOf="@id/tvDate3"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendSnacksWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendSnacks"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvSnacksWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toStartOf="@id/tvAmntSnacksWeek"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntSnacksWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSnacksSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendSnacksWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvSnacksSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:layout_toLeftOf="@id/tvAmntSnacksSaving"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntSnacksSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcySnacks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearDinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@+id/linearSnacks"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/relDinnerRecipeCooked"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Dinner"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_12sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:background="@drawable/calendar_events_stats_bg">
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendDinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDinnerCooked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spend on dinner"
+                                android:layout_toLeftOf="@id/tvDate2"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvDate2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntSpendDinnerWeek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendDinner"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDinnerWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="Amount Spent this week"
+                                android:layout_toLeftOf="@id/tvAmntDinnerWeek"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntDinnerWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/relAmntDinnerSaving"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relAmntSpendDinnerWeek"
+                            android:layout_marginTop="@dimen/_10sdp">
+                            <TextView
+                                android:id="@+id/tvDinnerSaving"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/tvAmntDinnerSaving"
+                                android:fontFamily="@font/poppins"
+                                android:text="Savings this week"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_13sdp" />
+                            <TextView
+                                android:id="@+id/tvAmntDinnerSaving"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/poppins"
+                                android:text="$0"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcyDinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layNoData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_below="@id/llCalendarViewEvents">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/_15sdp"
+                        android:layout_centerInParent="true"
+                        android:text="@string/no_orders_yet"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

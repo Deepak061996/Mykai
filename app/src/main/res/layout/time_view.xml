@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_90sdp"
+    android:layout_height="wrap_content"
+    android:id="@+id/cardViewMainLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="@dimen/_2sdp"
+    app:strokeColor="#06C169"
+    app:strokeWidth="@dimen/_1sdp"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    app:cardCornerRadius="@dimen/_10sdp">
+    <RelativeLayout
+        android:id="@+id/relTodayTimers"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="@dimen/_7sdp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textToday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Today"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+        <TextView
+            android:id="@+id/tvTodayDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textToday"
+            android:fontFamily="@font/poppins"
+            android:text="30 May"
+            android:textColor="#3C4541"
+            android:textSize="@dimen/_10sdp" />
+        <TextView
+            android:id="@+id/tvOffToday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTodayDate"
+            android:fontFamily="@font/poppins"
+            android:text="Up to $1.50 off"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:textColor="@color/light_green"
+            android:textSize="@dimen/_10sdp" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_2sdp"
+    app:dragEdge="left"
+    app:mode="same_level"
+    tools:ignore="MissingClass">
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/clickItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_2sdp"
+            android:elevation="@dimen/_4sdp"
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="#E1E1E1"
+            app:cardBackgroundColor="#FAFAFA"
+            app:cardCornerRadius="@dimen/_10sdp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_toLeftOf="@id/layend"
+                    android:text="Cold drink "/>
+                <LinearLayout
+                    android:id="@+id/layend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:id="@+id/layServing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imageMinusIcon"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:src="@drawable/ic_minus_square_icon" />
+                        <TextView
+                            android:id="@+id/textCount"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/imageMinusIcon"
+                            android:text="1"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
+                        <ImageView
+                            android:id="@+id/imageAddIcon"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_toEndOf="@+id/textCount"
+                            android:src="@drawable/ic_add_square_icon" />
+                    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/img_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:background="@drawable/delete_con_basket"
+                        android:gravity="center" />
+                </LinearLayout>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

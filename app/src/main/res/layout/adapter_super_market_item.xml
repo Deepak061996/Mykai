@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="@dimen/_125sdp"
+    android:id="@+id/cardViewMainLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="@dimen/_2sdp"
+    app:strokeColor="#06C169"
+    app:strokeWidth="@dimen/_1sdp"
+    android:layout_margin="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_10sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/relativeLayoutMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <RelativeLayout
+                android:id="@+id/relSuperMarkets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageSuperMarket"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_70sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/no_image"
+                    app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+                <include
+                    android:id="@+id/lay_progess"
+                    layout="@layout/progess_loader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"  />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvSuperMarketItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center"
+                android:layout_below="@+id/relSuperMarkets"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:paddingHorizontal="@dimen/_2sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text=""
+                android:singleLine="true"
+                android:textColor="#0A2533"
+                android:textSize="@dimen/_8sdp"/>
+
+            <TextView
+                android:id="@+id/tvSuperMarketRupees"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSuperMarketItems"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins_medium"
+                android:maxWidth="@dimen/_40sdp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="$0*"
+                android:textColor="#000000"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:id="@+id/tvMiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSuperMarketRupees"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins"
+                android:drawablePadding="@dimen/_5sdp"
+                android:singleLine="true"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:drawableStart="@drawable/basket_location"
+                android:text="0 miles"
+                android:textColor="#3C4541"
+                android:textSize="@dimen/_9sdp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layclose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="#A3000000">
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textSize="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:textColor="#FFFFFF"
+                android:text="Closed now Open at 10 AM"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_20sdp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|start"
+            android:layout_marginHorizontal="@dimen/_15sdp">
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Heads up"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp" />
+            <TextView
+                android:id="@+id/tvDes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/informs_user_the_change_is_at_their_own_risk"
+                android:textColor="#000000"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tvcheckbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/i_understand_and_agree"
+                android:gravity="center|start"
+                android:visibility="gone"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableStart="@drawable/uncheck_box_images"
+                android:textColor="#000000"
+                android:textSize="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:id="@+id/llLogoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/tvCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/green_fill_corner_bg"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="#FFFFFF"
+                    android:text="Cancel" />
+                <TextView
+                    android:id="@+id/tvContinue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/outline_green_border_bg"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Continue"
+                    android:textColor="#06C169" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+
+

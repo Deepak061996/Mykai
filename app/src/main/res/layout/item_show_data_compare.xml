@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        android:id="@+id/showCampore"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/_5sdp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:shapeAppearanceOverlay="@style/TopRoundedCardView">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_centerInParent="true"
+                android:layout_marginVertical="@dimen/_20sdp"
+                android:layout_alignParentTop="true"
+                android:text="Compare Basket Totals"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcyActivity"
+                android:layout_below="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_margin="@dimen/_8sdp"/>
+        </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/relTodayTimers"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:paddingHorizontal="@dimen/_3sdp"
+    android:paddingVertical="@dimen/_3sdp"
+    android:layout_margin="@dimen/_2sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="@dimen/_80sdp"
+        android:layout_gravity="center|start"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/texttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Steady"
+            android:textColor="#06C169"
+            android:textSize="@dimen/_13sdp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="match_parent"
+            android:gravity="center|end"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Estimated time: "
+            android:textColor="#3C4541"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:textSize="@dimen/_9sdp" />
+        <TextView
+            android:id="@+id/textdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|end"
+            android:fontFamily="@font/poppins_medium"
+            android:text="0.5 lb/week "
+            android:textColor="#06C169"
+            android:textSize="@dimen/_9sdp" />
+    </LinearLayout>
+</LinearLayout>

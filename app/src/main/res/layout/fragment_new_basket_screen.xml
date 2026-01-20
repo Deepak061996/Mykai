@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageBackIcon"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/back_icon"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Basket"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/textShoppingList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/gray_btn_select_background"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/poppins"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="Shopping list"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp"
+            app:drawableStartCompat="@drawable/ic_shopping_list" />
+
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pullToRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlHeader"
+            android:layout_above="@id/textConfirmOrder"
+            android:layout_marginTop="@dimen/_6sdp">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/textConfirmOrder"
+                android:fillViewport="true">
+                <RelativeLayout
+                    android:id="@+id/layData"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:id="@+id/rlYourRecipes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <RelativeLayout
+                            android:id="@+id/relYourRecipes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textYourRecipes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Your Recipes"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp"/>
+
+                            <TextView
+                                android:id="@+id/textSeeAll2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="See All"
+                                android:textColor="#06C169"
+                                android:textSize="@dimen/_12ssp"/>
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcvYourRecipes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relYourRecipes"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/rlIngredients"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/rlYourRecipes"
+                        android:layout_marginTop="@dimen/_15sdp">
+                        <RelativeLayout
+                            android:id="@+id/relIngredients"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textIngredients"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:text="Ingredients"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp"/>
+
+                            <TextView
+                                android:visibility="gone"
+                                android:id="@+id/textSeeAll3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="See All"
+                                android:textColor="#06C169"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcvIngredients"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relIngredients"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:nestedScrollingEnabled="false"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <TextView
+        android:id="@+id/textConfirmOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:background="@drawable/gray_btn_select_background"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingVertical="@dimen/_10sdp"
+        android:textSize="@dimen/_13sdp"
+        android:text="Checkout with Instacart"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+    <RelativeLayout
+        android:id="@+id/btnLock"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_below="@id/rlHeader"
+        android:background="#90FFFFFF"
+        android:layout_height="match_parent">
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/layNoBasket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_180sdp"
+            android:src="@drawable/nobasket"/>
+        <TextView
+            android:id="@+id/btnPlan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relBillingDetailAmount"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/green_outline_basket"
+            android:fontFamily="@font/montserrat_bold"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textSize="@dimen/_13sdp"
+            android:text="Plan my meals"
+            android:textAlignment="center"
+            android:textColor="@color/light_green" />
+    </LinearLayout>
+</RelativeLayout>

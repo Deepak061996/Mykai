@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/relMainLayouts"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_2sdp">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Walmart"
+        android:padding="@dimen/_4sdp"
+        android:textColor="#3C4541"
+        android:layout_toLeftOf="@id/tvPrice"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="$123"
+        android:padding="@dimen/_4sdp"
+        android:layout_alignParentEnd="true"
+        android:textColor="#06C169"
+        android:textSize="@dimen/_15sdp" />
+
+</RelativeLayout>

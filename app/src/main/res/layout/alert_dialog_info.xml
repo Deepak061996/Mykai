@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/bottom_white_health_layout">
+            <LinearLayout
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:background="@drawable/white_health_view"/>
+           <androidx.core.widget.NestedScrollView
+               android:layout_width="match_parent"
+               android:id="@+id/nestedScroll"
+               android:layout_marginTop="@dimen/_10sdp"
+               android:layout_height="match_parent"
+               android:overScrollMode="never"
+               android:fillViewport="true">
+               <LinearLayout
+                   android:id="@+id/layWeight"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginVertical="@dimen/_10sdp"
+                   android:layout_marginHorizontal="@dimen/_5sdp"
+                   android:orientation="vertical">
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins_semibold"
+                       android:text="@string/macro_options"
+                       android:gravity="center|start"
+                       android:textColor="#000000"
+                       android:textSize="@dimen/_15sdp" />
+                   <TextView
+                       android:id="@+id/tvMacro"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:text=""
+                       android:gravity="center|start"
+                       android:textColor="#000000"
+                       android:textSize="@dimen/_12sdp" />
+
+                   <TextView
+                       android:id="@+id/tvTitle"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins_semibold"
+                       android:text="Balanced"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:gravity="center|start"
+                       android:textColor="#000000"
+                       android:textSize="@dimen/_15sdp" />
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_180sdp"
+                       android:orientation="vertical"
+                       android:gravity="center|top"
+                       android:layout_marginTop="@dimen/_10sdp">
+                       <TextView
+                           android:id="@+id/tvName"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:gravity="center"
+                           android:text="Balanced Macro Distribution"
+                           android:textColor="#000000"
+                           android:fontFamily="@font/poppins"
+                           android:textSize="@dimen/_12sdp"
+                           />
+                       <ImageView
+                           android:id="@+id/img"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/balanced_img" />
+                       <com.mykaimeal.planner.di.MacroPieChartView
+                           android:id="@+id/pieChart"
+                           android:layout_width="match_parent"
+                           android:visibility="gone"
+                           android:layout_height="match_parent" />
+                   </LinearLayout>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins_semibold"
+                       android:text="Disclaimer"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:gravity="center|start"
+                       android:textColor="#000000"
+                       android:textSize="@dimen/_15sdp" />
+
+
+                   <TextView
+                       android:id="@+id/tvDisclaimer"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins"
+                       android:text=""
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:gravity="center|start"
+                       android:textColor="#000000"
+                       android:textSize="@dimen/_12sdp"/>
+               </LinearLayout>
+           </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

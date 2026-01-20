@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_20sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp">
+
+            <ImageView
+                android:id="@+id/imageKitchen"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/nano_banana" />
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageKitchen"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Want me to track your savings?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:id="@+id/llLogoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvLogout"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@+id/tvDialogCancelBtn"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/outline_green_border_bg"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="#06C169"
+                    android:text="No" />
+
+                <TextView
+                    android:id="@+id/tvDialogLogoutBtn"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:background="@drawable/green_fill_corner_bg"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Yes"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+
+

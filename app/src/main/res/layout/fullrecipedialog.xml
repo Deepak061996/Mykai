@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/relBack"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/back_icon" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relBack"
+        android:orientation="vertical"
+        android:layout_above="@id/laybottom"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialIngCookRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="@dimen/_2sdp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:id="@+id/llIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textIngredients"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/unselect_bg"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins"
+                        android:text="Ingredients"
+                        android:gravity="center"
+                        android:textColor="#3C4541"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCookWare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textCookWare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/unselect_bg"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="Cookware"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="#3C4541"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRecipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textRecipe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/select_bg"
+                        android:paddingHorizontal="@dimen/_16sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="Recipe"
+                        android:gravity="center"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/laybottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#999999"/>
+        <RelativeLayout
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="@dimen/_45sdp">
+            <RelativeLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_centerInParent="true"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/imgleft"
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentStart="true"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="#999999"
+                        android:src="@drawable/back_icon"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/imgright"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:tint="#999999"
+                        android:src="@drawable/forwordicon"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/imgrefresh"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentStart="true"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:tint="#999999"
+                    android:src="@drawable/compassicon"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/imgshare"
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:tint="#999999"
+                    android:src="@drawable/uploadicon"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

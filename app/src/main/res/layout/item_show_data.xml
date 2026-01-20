@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMenuPopUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:visibility="visible"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_3sdp">
+                <RelativeLayout
+                    android:id="@+id/relGentle"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Gentle"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relSteady"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Steady"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relFaster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_3sdp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:text="Faster"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

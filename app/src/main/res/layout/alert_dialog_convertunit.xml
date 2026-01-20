@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/bottom_white_health_layout">
+        <LinearLayout
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_3sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/white_health_view"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+            <TextView
+                android:id="@+id/btnOriginal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Original"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center|start"
+                android:drawableEnd="@drawable/radio_check_icon"
+                android:textColor="#171D1B"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/btnMetric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Metric"
+                android:drawableEnd="@drawable/radio_check_icon"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center|start"
+                android:textColor="#171D1B"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/btnImperial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Imperial"
+                android:drawableEnd="@drawable/radio_check_icon"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center|start"
+                android:textColor="#171D1B"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

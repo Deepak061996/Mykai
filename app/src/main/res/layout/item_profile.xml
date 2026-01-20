@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMenuPopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:visibility="visible"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp">
+
+            <RelativeLayout
+                android:id="@+id/relLogout"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Logout               "
+                    android:drawableStart="@drawable/logout_icons"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:textColor="#3C4541"
+                    android:textSize="@dimen/_11sdp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relDeleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relLogout"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp">
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Delete Account"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:drawableStart="@drawable/delete_account_icon"
+                    android:textColor="#3C4541"
+                    android:textSize="@dimen/_11sdp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
